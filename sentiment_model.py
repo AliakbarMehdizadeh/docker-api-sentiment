@@ -1,7 +1,6 @@
-from transformers import pipeline
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-# Load pre-trained sentiment-analysis pipeline
-classifier = pipeline('sentiment-analysis')
+analyzer = SentimentIntensityAnalyzer()
 
 def analyze_sentiment(text):
-    return classifier(text)
+    return analyzer.polarity_scores(text)['compound']
