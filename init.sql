@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS api_logs (
+    id SERIAL PRIMARY KEY,
+    text TEXT NOT NULL,
+    sentiment TEXT NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

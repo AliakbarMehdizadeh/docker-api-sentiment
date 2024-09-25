@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: my_api          # Replace with your desired username
+      POSTGRES_PASSWORD: my_api_pass    # Replace with your desired password
+      POSTGRES_DB: api_db          # Replace with your desired database name
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # Mount your SQL script here
+
+  api:
+    build: .
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_DB: api_db
+      POSTGRES_USER: my_api
+      POSTGRES_PASSWORD: my_api_pass
+    ports:
+      - "5001:5001"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
