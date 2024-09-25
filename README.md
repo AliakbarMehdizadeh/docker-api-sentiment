@@ -28,8 +28,8 @@ This project demonstrates how to serve a sentiment analysis model via a REST API
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/AliakbarMehdizadeh/api-scalable.git
-   cd api-scalable
+   git clone https://github.com/AliakbarMehdizadeh/docker-api-sentiment.git
+   cd docker-api-sentiment
 2. Build and start the application with Docker Compose:
    ```bash
    docker-compose up --build
